@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "start": "node server/app.js",
-    "build": "webpack --config webpack.config.js --progress --hide-modules"
+    "build": "webpack --config ./client/webpack.config.js --progress --hide-modules"
   },
   "dependencies": {
     "axios": "^0.18.0",

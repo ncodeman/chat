@@ -1,9 +1,5 @@
 const EventEmitter = require('events')
-
-const htmlSpecialChars = str => {
-  if(str == null) return '';
-  return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;');
-}
+const htmlChars = require('../utils/htmlspecialchars')
 
 class Chat extends EventEmitter {
   constructor() {

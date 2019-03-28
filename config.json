@@ -1,5 +1,4 @@
 {
-  "website": "http://localhost:8080",
   "database":
   {
     "host": "localhost",
@@ -8,15 +7,8 @@
     "database": "chat",
     "dialect": "mysql"
   },
-  "debug": true,
   "socket": 2053,
   "port": 8080,
-  "https": false,
-  "cert":
-  {
-    "public": "../../ssl/public",
-    "private": "../../ssl/private"
-  },
   "express":
   {
     "name": "chat",

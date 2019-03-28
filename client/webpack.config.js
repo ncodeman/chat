@@ -11,15 +11,15 @@ module.exports = {
   },
   output: {
     publicPath: '/dist/',
-    path: path.resolve(__dirname, 'client/dist'),
+    path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.[chunkhash].js'
   },
   resolve: {
-    modules: [path.resolve(__dirname, 'client'), 'node_modules'],
+    modules: [path.resolve(__dirname, ',.'), 'node_modules'],
     extensions: ['.js', '.vue'],
     alias: {
-      'client': path.resolve(__dirname, 'client'),
-      'assets': path.resolve(__dirname, 'client/assets')
+      'client': path.resolve(__dirname, './'),
+      'assets': path.resolve(__dirname, 'assets')
     }
   },
   module: {
@@ -60,10 +60,10 @@ module.exports = {
   },
   plugins: [
     new VueLoader(),
-    new CleanWebpack([path.resolve(__dirname, 'client/dist')]),
+    new CleanWebpack([path.resolve(__dirname, 'dist')]),
     new HtmlWebpack({
-      filename: path.resolve(__dirname, 'client/dist/index.html'),
-      template: path.resolve(__dirname, 'client/index.html'),
+      filename: path.resolve(__dirname, 'dist/index.html'),
+      template: path.resolve(__dirname, 'index.html'),
       inject: true,
       minify: {
         removeComments: true,
@@ -72,8 +72,8 @@ module.exports = {
       }
     }),
     new CopyWebpack([{
-      from: path.resolve(__dirname, 'client/assets/static'),
-      to: path.resolve(__dirname, 'client/dist/static'),
+      from: path.resolve(__dirname, 'assets/static'),
+      to: path.resolve(__dirname, 'dist/static'),
       ignore: ['.*']
     }])
   ]
