@@ -203,6 +203,7 @@ table {
 .contact .info {
     padding-left: 25px;
     align-items: center;
+    width: calc(100% - 65px);
 }
 
 .contact .info .username {

@@ -7,7 +7,7 @@ module.exports = (fs, config) => {
       database: config.database,
       host: config.host,
       dialect: config.dialect,
-      logging: false,
+      //logging: true,
       define: {
         timestamps: false
       }

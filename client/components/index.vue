@@ -8,16 +8,16 @@
         </div>
         <div class="contacts">
           <div class="scroll">
-            <div class="contact active flex flex-between flex-align-center">
+            <div class="contact active flex flex-align-center" v-for="channel in channels">
               <div class="ava">
                 <div class="image"
-                     style="background: url(https://pp.userapi.com/c841427/v841427747/72a5b/iqTxXkclKEM.jpg?ava=1) no-repeat center center;"></div>
+                     :style="{background: `url(http://lorempixel.com/80/80/people/${channel.user_avatar}) no-repeat center center`}"></div>
               </div>
               <div class="info flex flex-wrap flex-between">
-                <div class="username">Никита Сахаров
-                  <div class="date">20:35</div>
+                <div class="username">{{ channel.channel_name }}
+                  <div class="date">{{ channel.createdAt.split('T')[1].split('.')[0] }}</div>
                 </div>
-                <div class="hist">[#lox228] Если кто-то примет, то идите пожалуйста нахуй.</div>
+                <div class="hist">{{ channel.message }}</div>
               </div>
             </div>
           </div>
@@ -71,7 +71,8 @@
       return {
         name: !localStorage.getItem('name') ? '' : localStorage.getItem('name'),
         avatar: !localStorage.getItem('avatar') ? this.get_avatar() : localStorage.getItem('avatar'),
-        message: ''
+        message: '',
+        channels: []
       }
     },
     mounted () {
@@ -83,7 +84,8 @@
         try {
           const res = (await this.$http.post('/api/channels')).data
 
-          console.log(res)
+          this.channels = res.channels
+
         } catch (error) {
           this.$notify({
             group: 'notes',
