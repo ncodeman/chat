@@ -1,0 +1,18 @@
+{
+  "production":
+  {
+    "host": "localhost",
+    "username": "root",
+    "password": "rootroot",
+    "database": "chat",
+    "dialect": "mysql"
+  },
+  "development":
+  {
+    "host": "localhost",
+    "username": "root",
+    "password": "rootroot",
+    "database": "chat",
+    "dialect": "mysql"
+  }
+}
