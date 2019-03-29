@@ -7,7 +7,7 @@ module.exports = (fs, config) => {
       database: config.database,
       host: config.host,
       dialect: config.dialect,
-      //logging: true,
+      logging: false,
       define: {
         timestamps: false
       }
@@ -15,15 +15,15 @@ module.exports = (fs, config) => {
 
   let db = {}
 
-  fs.readdirSync(__dirname).filter((file) => {
-    return(file.indexOf('.') !== 0) && (file !== 'index.js')
+  fs.readdirSync(__dirname).filter(file => {
+    return (file.indexOf('.') !== 0) && (file !== 'index.js')
   }).forEach((file) => {
-    var model = sequelize.import(path.join(__dirname, file))
+    let model = sequelize.import(path.join(__dirname, file))
     db[model.name] = model
   })
 
   Object.keys(db).forEach((modelName) => {
-    if("associate" in db[modelName]) {
+    if ('associate' in db[modelName]) {
       db[modelName].associate(db)
     }
   })

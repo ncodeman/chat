@@ -14,6 +14,13 @@ global.io = socket.listen(server, {
   origins: '*:*'
 })
 
+hub.on('channel_new', data => {
+  io.emit('channel_new', data)
+})
+hub.on('message_new', data => {
+  io.emit('message_new', data)
+})
+
 console.log(`Socket service is listening on port ${config.socket}`)
 
 /* Sending current online to users */

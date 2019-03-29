@@ -1,3 +1,19 @@
 {
-
+  "lang": "Language",
+  "create_channel": "Create channel",
+  "your_name": "Your name",
+  "close": "Close",
+  "input_channel": "Input channel name",
+  "channel": "Channel name...",
+  "input_message": "Input message",
+  "message": "First message...",
+  "create": "Create",
+  "send": "Send",
+  "notification": {
+    "send_message": "Sending message",
+    "create_channel": "Creating channel",
+    "server_error": "Server error",
+    "error": "Try again later",
+    "input": "Input something"
+  }
 }

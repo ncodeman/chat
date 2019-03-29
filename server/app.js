@@ -38,6 +38,14 @@ if (cluster.isMaster) {
   workers[services.id] = services
   workers[services.id].name = 'services'
 
+  /* Messages from workers */
+  hub.on('channel_new', data => {
+    hub.requestWorker(services, 'channel_new', data)
+  })
+  hub.on('message_new', data => {
+    hub.requestWorker(services, 'message_new', data)
+  })
+
   /* Restart dead worker */
   cluster.on('exit', worker => {
     const saveWorker = cluster.fork({
@@ -46,10 +54,10 @@ if (cluster.isMaster) {
 
     if (workers[worker.id].name === 'services') services = saveWorker
 
-  workers[saveWorker.id] = saveWorker
-  workers[saveWorker.id].name = workers[worker.id].name
-  delete workers[worker.id]
-})
+    workers[saveWorker.id] = saveWorker
+    workers[saveWorker.id].name = workers[worker.id].name
+    delete workers[worker.id]
+  })
 } else {
   /* Requiring worker as a dependency */
   require(`./${process.env.name}.js`)

@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800'); html,body {
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800');
+
+html, body {
     position: relative;
     line-height: 1;
     font-size: 14px;
@@ -127,6 +129,35 @@ table {
     box-shadow: 8px 9px 5em rgba(0, 0, 0, 0.05);
 }
 
+.language {
+    font-weight: bold;
+}
+
+.language span {
+    position: relative;
+}
+
+.language span a {
+    color: #000;
+    padding: 12px 15px;
+    border: solid 1px #d3d3d3;
+    border-radius: 8px;
+    margin: 0 5px;
+    text-transform: uppercase;
+}
+
+.language span a.active {
+    background: #377bcf;
+    color: #fff;
+    border-color: #377bcf;
+}
+
+.language span a:hover {
+    background: #377bcf;
+    color: #fff;
+    border-color: #377bcf;
+}
+
 .search {
     padding: 0 1%;
     border-bottom: solid 1px #c5c5c5;
@@ -252,13 +283,8 @@ table {
 
 .chat-content .heading .info span {
     font-weight: bold;
-    padding-bottom: 15px;
     display: inline-block;
     color: black;
-}
-
-.chat-content .heading .info p {
-    color: #5c5c5c;
 }
 
 .chat-content .message-content {
@@ -337,35 +363,6 @@ table {
     background: #f2f2f2;
 }
 
-.chat-content .heading .language {
-    font-weight: bold;
-}
-
-.chat-content .heading .language span {
-    position: relative;
-}
-
-.chat-content .heading .language span a {
-    color: #000;
-    padding: 12px 15px;
-    border: solid 1px #d3d3d3;
-    border-radius: 8px;
-    margin: 0 5px;
-    text-transform: uppercase;
-}
-
-.chat-content .heading .language span a.active {
-    background: #377bcf;
-    color: #fff;
-    border-color: #377bcf;
-}
-
-.chat-content .heading .language span a:hover {
-    background: #377bcf;
-    color: #fff;
-    border-color: #377bcf;
-}
-
 .leftside .nickname {
     text-align: center;
     position: relative;
@@ -394,7 +391,7 @@ table {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.6);
-    z-index: 99999;
+    z-index: 9998;
 }
 
 .modals .modal-content {
@@ -451,4 +448,95 @@ table {
     font-weight: bold;
     color: #fff;
     background: #377bcf;
+}
+
+
+.notification-enter,
+.notification-to,
+.notification-move,
+.notification-leave-active {
+    opacity: 0;
+    transform: translateX(100%) scale(.2)
+}
+
+.notifications {
+    position: fixed;
+    top: 10px !important;
+    right: 10px !important;
+    z-index: 9999 !important;
+}
+
+.modal-active .notifications {
+    top: 4px !important;
+}
+
+.notifications .notification-wrapper .note {
+    box-sizing: border-box;
+    border-radius: 2px;
+    border-left: 3px solid;
+    width: 334px;
+    line-height: 18px;
+    margin-top: 10px;
+    padding: 14px 20px 14px 64px;
+    cursor: pointer;
+    position: relative;
+}
+
+.notifications .notification-wrapper .note:before {
+    content: '';
+    border-radius: 2px;
+    width: 30px;
+    height: 30px;
+    margin-top: -15px;
+    position: absolute;
+    top: 50%;
+    left: 20px;
+}
+
+.notifications .notification-wrapper .note b {
+    display: block;
+}
+
+.notifications .notification-wrapper .note a {
+    background: url('../images/cross.svg') no-repeat 50% 50%;
+    background-size: 12px;
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    top: 7px;
+    right: 7px;
+}
+
+.notifications .notification-wrapper .note a:hover {
+    opacity: 0.8
+}
+
+.notifications .notification-wrapper .note.error {
+    background: rgba(225, 64, 68, 0.95);
+    border-color: #fd7679;
+}
+
+.notifications .notification-wrapper .note.error:before {
+    background: url('../images/note_error.svg') no-repeat 50% 50% #b53538;
+    background-size: 10px 10px;
+}
+
+.notifications .notification-wrapper .note.success {
+    background: rgba(51, 208, 99, 0.95);
+    border-color: #75fc96;
+}
+
+.notifications .notification-wrapper .note.success:before {
+    background: url('../images/note_success.svg') no-repeat 50% 50% #2da54b;
+    background-size: 14px 10px;
+}
+
+.notifications .notification-wrapper .note.danger {
+    background: rgba(213, 187, 68, 0.95);
+    border-color: #ebd87c;
+}
+
+.notifications .notification-wrapper .note.danger:before {
+    background: url('../images/note_danger.svg') no-repeat 50% 50% #b29b2b;
+    background-size: 3px 14px;
 }
