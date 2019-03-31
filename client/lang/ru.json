@@ -9,6 +9,8 @@
   "message": "Первое сообщение...",
   "create": "Создать",
   "send": "Отправить",
+  "chats": "Чаты",
+  "online": "Онлайн",
   "notification": {
     "send_message": "Отправка сообщения",
     "create_channel": "Создание канала",

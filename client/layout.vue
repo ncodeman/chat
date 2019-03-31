@@ -15,7 +15,6 @@
     mounted () {
       console.log('%cBack-end -  https://t.me/codeman1337', 'color: green; font-size:15px;')
       console.log('%cFront-end -  https://t.me/codeman1337', 'color: blue; font-size:15px;')
-
       this.$i18n.locale = !localStorage.getItem('lang') ? 'en' : localStorage.getItem('lang')
     }
   }

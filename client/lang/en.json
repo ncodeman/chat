@@ -9,6 +9,8 @@
   "message": "First message...",
   "create": "Create",
   "send": "Send",
+  "chats": "Chats",
+  "online": "Online",
   "notification": {
     "send_message": "Sending message",
     "create_channel": "Creating channel",

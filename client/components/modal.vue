@@ -3,7 +3,7 @@
     <div class="modal-content flex flex-center">
       <div class="modal">
         <h3 class="title">{{ $t('create_channel') }} <a href="javascript:void(0)" @click="$root.$emit('close_modal')">{{ $t('close') }}</a></h3>
-        <form @submit="create_channel">
+        <form @submit.prevent="create_channel">
           <div class="bx-input">
             <h4>{{ $t('input_channel') }}</h4>
             <input type="text" v-model="channel_name" :placeholder="$t('channel')">

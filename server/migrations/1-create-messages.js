@@ -6,6 +6,8 @@ module.exports = {
       message: {type: Sequelize.TEXT('long')},
       user_name: {type: Sequelize.STRING},
       user_avatar: {type: Sequelize.STRING},
+      user2_name: {type: Sequelize.STRING, defaultValue: null},
+      user2_avatar: {type: Sequelize.STRING, defaultValue: null},
       createdAt: {
         type: Sequelize.DATE,
         allowNull: false

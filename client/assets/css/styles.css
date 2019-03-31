@@ -200,9 +200,30 @@ table {
     margin-top: 103px;
 }
 
+.contacts .sub {
+    width: 50%;
+    float: left;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    text-transform: uppercase;
+    font-size: 17px;
+    font-weight: bold;
+    border-bottom: solid 1px #c5c5c5;
+    cursor: pointer;
+}
+
+.contacts .sub.active {
+    background: #377bcf;
+    color: #fff;
+}
+
+
 .contacts .scroll {
-    height: 100%;
+    height: calc(100% - 50px);
     overflow: auto;
+    float: left;
+    width: 100%;
 }
 
 .contact {

@@ -1,13 +1,7 @@
 /* Config and db loading */
 global.fs = require('fs')
-try {
-  global.config = require('../config.json')
-  global.models = require('./models')(fs, config.database)
-} catch (err) {
-  console.log(err)
-  process.exit(1)
-}
-
+global.config = require('../config.json')
+global.models = require('./models')(fs, config.database)
 /* Dependencies */
 const cluster = require('cluster')
 const cluster_hub = require('cluster-hub')
